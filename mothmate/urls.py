@@ -46,5 +46,5 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('login/', login_redirect),
     path('logout/', logout_redirect),
-    path('', include('records.urls')),
+    path('', include('records.urls')),  # ✅ THIS LINE WAS WRONG
 ]
