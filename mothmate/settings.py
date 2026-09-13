@@ -122,4 +122,4 @@ LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
 # Master access password
-SITE_PASSWORD = ""
+SITE_PASSWORD = os.getenv('SITE_PASSWORD', '')
