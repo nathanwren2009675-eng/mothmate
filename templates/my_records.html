@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Records — MothMate</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background: #f5f5f5; }
+        .header { background: #2c3e50; color: white; padding: 20px; margin-bottom: 20px; }
+        .nav a { color: white; margin-right: 15px; text-decoration: none; }
+        .content { background: white; padding: 30px; border-radius: 8px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th, td { padding: 10px; text-align: left; border-bottom: 1px solid #ddd; }
+        th { background: #27ae60; color: white; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>MothMate — My Records</h1>
+        <div class="nav">
+            <a href="/">Home</a>
+            <a href="/add-sighting/">Add Sighting</a>
+            <a href="/my-records/">My Records</a>
+            <a href="/legacy-import/">Legacy Import</a>
+            <a href="/logout/" style="float:right;">Logout</a>
+        </div>
+    </div>
+    <div class="content">
+        <h2>Your Sightings</h2>
+        {% if records %}
+        <table>
+            <tr>
+                <th>Species</th>
+                <th>Date</th>
+                <th>Location</th>
+                <th>Quantity</th>
+            </tr>
+            {% for record in records %}
+            <tr>
+                <td>{{ record.vernacular|default:record.taxon }}</td>
+                <td>{{ record.date }}</td>
+                <td>{{ record.site }}</td>
+                <td>{{ record.quantity }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+        <p>No records yet. <a href="/add-sighting/">Add your first sighting</a>!</p>
+        {% endif %}
+    </div>
+</body>
+</html>

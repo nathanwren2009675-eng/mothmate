@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Sighting — MothMate</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background: #f5f5f5; }
+        .header { background: #2c3e50; color: white; padding: 20px; margin-bottom: 20px; }
+        .nav a { color: white; margin-right: 15px; text-decoration: none; }
+        .content { background: white; padding: 30px; border-radius: 8px; }
+        label { display: block; margin-top: 10px; font-weight: bold; }
+        input, select { width: 300px; padding: 8px; margin-top: 5px; border: 2px solid #ddd; border-radius: 4px; }
+        button { margin-top: 20px; padding: 10px 25px; background: #27ae60; color: white; border: none; border-radius: 4px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>MothMate — Add Sighting</h1>
+        <div class="nav">
+            <a href="/">Home</a>
+            <a href="/add-sighting/">Add Sighting</a>
+            <a href="/my-records/">My Records</a>
+            <a href="/legacy-import/">Legacy Import</a>
+            <a href="/logout/" style="float:right;">Logout</a>
+        </div>
+    </div>
+    <div class="content">
+        <h2>Add New Sighting</h2>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Save Sighting</button>
+        </form>
+    </div>
+</body>
+</html>
