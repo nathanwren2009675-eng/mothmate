@@ -227,8 +227,9 @@ def login_page(request):
 
 # ========== LOGOUT ==========
 def logout_page(request):
+    from django.contrib.auth import logout
     logout(request)
-    return HttpResponseRedirect('/')
+    return HttpResponseRedirect('/accounts/login/')
 
 # ========== DELETE SINGLE RECORD ==========
 def delete_sighting(request, sighting_id):
